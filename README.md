@@ -1,7 +1,9 @@
 # Math quize
 
+Game you can see [here] (https://ekaterina-kaschenko.github.io/Math-Quize/)
+
 ## How-To
-### Run application:
+### Run application from your PC:
 
 1. run:
 
