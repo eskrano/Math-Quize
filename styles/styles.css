@@ -17,29 +17,33 @@
 }
 
 .title {
-	font-size: 2em;
+	font-size: 2.5em;
 	font-weight: 700;
 }
 
 .description,
 .play-game {
-	font-size: 1.2em;
+	font-size: 1.8em;
   margin: 1em 0;
   line-height: 1.5;
 }
 
+.example {
+	margin: 1em 0;
+}
+
 .progress-bar {
-	height: 10px;
+	height: 15px;
 	width: 100%;
-	border-radius: 5px;
+	border-radius: 10px;
 	border: 1px solid #0074d9;
 	transition: all 1s ease;
 }
 
 .progress-bar-condition {
 	background-color: #0074d9;
-	border-radius: 5px;
-	height: 10px;
+	border-radius: 10px;
+	height: 15px;
 	transition: all 1s linear;
 }
 
