@@ -8,13 +8,29 @@
 <body>
 	<div class="wrapper">
 		<div class="quize">
-			<h1 class="title">Math quize</h1>
-			<p class="description">
-				Solve the task, if it is correct - press Yes, otherwise - No. You have only 5 sec to think. Good luck!
-			</p>
-			<button class="start">
-				START
-			</button>
+			<div class="start-game">
+				<h1 class="title">Math quize</h1>
+				<p class="description">
+					Solve the task, if it is correct - press Yes, otherwise - No. You have only 5 sec to think. Good luck!
+				</p>
+				<input type="button" value="START" class="start">
+			</div>
+			<div class="play-game">
+				<div class="progress-bar">
+					<div class="progress-bar-condition">
+						
+					</div>
+				</div>
+				<span class="a">a</span> + <span class="b">b</span> = <span class="answer">2</span>
+				<form class="task-solution">
+					<input type="button" value="Yes" class="yes">
+					<input type="button" value="No" class="no">
+				</form>
+			</div>
+			<div class="end-game">
+				<p>End game. Your score is <span>2</span></p>
+			</div>
+
 		</div>
 	</div>
 	<script type="text/javascript" src="./scripts/app.js"></script>

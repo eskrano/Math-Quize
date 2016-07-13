@@ -3,3 +3,18 @@
 	margin: auto;
 	text-align: center;
 }
+
+.progress-bar {
+	height: 10px;
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #9932CC;
+	transition: all 1s ease;
+}
+
+.progress-bar-condition {
+	background-color: #9932CC;
+	border-radius: 5px;
+	height: 10px;
+	transition: all 1s linear;
+}

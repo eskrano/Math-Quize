@@ -1,25 +1,71 @@
-'use strict'
 window.onload = (function() {
+  'use strict';
+
   function Quize() {
   	console.log('hello');
-  	this.startGame();
-  	this.getTask();
+    this.result = null;
+    this.startGame();
   }
+
   Quize.prototype.startGame = function() {
+    this.startGameElem = document.getElementsByClassName('start-game')[0].style.display = 'block';
+    this.playGameElem = document.getElementsByClassName('play-game')[0].style.display = 'none';
+    this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'none';
   	this.start = document.getElementsByClassName('start')[0];
-  	this.start.onclick = function() {
-	    console.log('click');
-	  };
+  	this.start.addEventListener("click", function() {
+      Quize.prototype.getTask();
+	  });
+  };
+
 	Quize.prototype.getTask = function(a,b) {
+    this.startGameElem = document.getElementsByClassName('start-game')[0].style.display = 'none';
+    this.playGameElem = document.getElementsByClassName('play-game')[0].style.display = 'block';
+    this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'none';
 		a = getRandomInt(1,20);
 		b = getRandomInt(1,20);
-		console.log(a,b);
-	}
+    this.result = a + b;
+    this.progressBar = document.getElementsByClassName('progress-bar')[0];
+
+		console.log(a,b,this.result);
+	};
+  Quize.prototype.trackDOM = function() {
+    //
   };
+
+  Quize.prototype.endTask = function() {
+    this.startGameElem = document.getElementsByClassName('start-game')[0].style.display = 'none';
+    this.playGameElem = document.getElementsByClassName('play-game')[0].style.display = 'none';
+    this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'block';
+  };
+
+  
   var quize = new Quize();
 
   function getRandomInt(min, max) {
     return Math.round(Math.random() * (max - min)) + min;
   }
+
+  function progress () {
+    var yes = document.getElementsByClassName('yes')[0];
+    var bar = document.getElementsByClassName('progress-bar')[0];
+    var barProgress = document.getElementsByClassName('progress-bar-condition')[0];
+    barProgress.style.width = 0;
+
+    yes.addEventListener("click", function() {
+      var count = 0;
+      var interval = setInterval(function() {
+        if (count >= 100) {
+          clearInterval(interval);
+          return;
+        }
+        count++;
+        barProgress.style.width = count + '%';
+      }, 50);
+
+    });
+  }
+
+  progress ();
+  
 
  });
