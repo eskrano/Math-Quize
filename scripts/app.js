@@ -21,12 +21,24 @@ window.onload = (function() {
     this.startGameElem = document.getElementsByClassName('start-game')[0].style.display = 'none';
     this.playGameElem = document.getElementsByClassName('play-game')[0].style.display = 'block';
     this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'none';
-		a = getRandomInt(1,20);
-		b = getRandomInt(1,20);
-    this.result = a + b;
+    var a = getRandomInt(1,20);
+    var b = getRandomInt(1,20);
+    var result = a + b;
+    // this.aValue = document.getElementsByClassName('a-value')[0].innerHTML;
+    // this.aValue = a;
+    var aValue = document.querySelector(".a-value");
+    aValue.textContent = a;
+
+    var bValue = document.querySelector('.b-value');
+    bValue.textContent = b;
+
+    var answer = document.querySelector('.answer');
+    answer.textContent = result;
+		
+    
     this.progressBar = document.getElementsByClassName('progress-bar')[0];
 
-		console.log(a,b,this.result);
+		console.log(a,b, result);
 	};
   Quize.prototype.trackDOM = function() {
     //
