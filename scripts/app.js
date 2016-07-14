@@ -1,6 +1,5 @@
 window.onload = (function() {
   'use strict';
-
   function Quize() {
   	console.log('hello');
     this.result = null;
@@ -8,11 +7,12 @@ window.onload = (function() {
   }
 
   Quize.prototype.startGame = function() {
-    Quize.prototype.trackDOM();
+    console.log(Quize.prototype.trackDOM());
     this.startGameElem = document.getElementsByClassName('start-game')[0].style.display = 'block';
   	this.start = document.getElementsByClassName('start')[0];
   	this.start.addEventListener("click", function() {
       Quize.prototype.getTask();
+      progress ();
 	  });
   };
 
@@ -33,12 +33,16 @@ window.onload = (function() {
     this.progressBar = document.getElementsByClassName('progress-bar')[0];
 		console.log(a,b, result);
 	};
+
   Quize.prototype.trackDOM = function() {
     this.playGameElem = document.getElementsByClassName('play-game')[0].style.display = 'none';
     this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'none';
     this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'none';
   };
 
+console.log(this.trackDOM + 'jjj');
+  console.log('jjj');
+  
   Quize.prototype.endTask = function() {
     this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'block';
   };
@@ -51,12 +55,12 @@ window.onload = (function() {
   }
 
   function progress () {
-    var yes = document.getElementsByClassName('yes')[0];
+    // var yes = document.getElementsByClassName('yes')[0];
     var bar = document.getElementsByClassName('progress-bar')[0];
     var barProgress = document.getElementsByClassName('progress-bar-condition')[0];
     barProgress.style.width = 0;
 
-    yes.addEventListener("click", function() {
+    this.addEventListener("click", function() {
       var count = 0;
       var interval = setInterval(function() {
         if (count >= 100) {
@@ -69,8 +73,5 @@ window.onload = (function() {
 
     });
   }
-
-  progress ();
-  
 
  });
