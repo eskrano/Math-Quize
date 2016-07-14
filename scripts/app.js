@@ -8,9 +8,8 @@ window.onload = (function() {
   }
 
   Quize.prototype.startGame = function() {
+    Quize.prototype.trackDOM();
     this.startGameElem = document.getElementsByClassName('start-game')[0].style.display = 'block';
-    this.playGameElem = document.getElementsByClassName('play-game')[0].style.display = 'none';
-    this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'none';
   	this.start = document.getElementsByClassName('start')[0];
   	this.start.addEventListener("click", function() {
       Quize.prototype.getTask();
@@ -18,14 +17,11 @@ window.onload = (function() {
   };
 
 	Quize.prototype.getTask = function(a,b) {
-    this.startGameElem = document.getElementsByClassName('start-game')[0].style.display = 'none';
+    console.log(Quize.prototype.trackDOM());
     this.playGameElem = document.getElementsByClassName('play-game')[0].style.display = 'block';
-    this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'none';
     var a = getRandomInt(1,20);
     var b = getRandomInt(1,20);
     var result = a + b;
-    // this.aValue = document.getElementsByClassName('a-value')[0].innerHTML;
-    // this.aValue = a;
     var aValue = document.querySelector(".a-value");
     aValue.textContent = a;
 
@@ -34,19 +30,16 @@ window.onload = (function() {
 
     var answer = document.querySelector('.answer');
     answer.textContent = result;
-		
-    
     this.progressBar = document.getElementsByClassName('progress-bar')[0];
-
 		console.log(a,b, result);
 	};
   Quize.prototype.trackDOM = function() {
-    //
+    this.playGameElem = document.getElementsByClassName('play-game')[0].style.display = 'none';
+    this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'none';
+    this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'none';
   };
 
   Quize.prototype.endTask = function() {
-    this.startGameElem = document.getElementsByClassName('start-game')[0].style.display = 'none';
-    this.playGameElem = document.getElementsByClassName('play-game')[0].style.display = 'none';
     this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'block';
   };
 
