@@ -1,5 +1,13 @@
 window.onload = (function() {
   'use strict';
+
+
+  var yes = document.getElementsByClassName('yes')[0];
+  var bar = document.getElementsByClassName('progress-bar')[0];
+  var barProgress = document.getElementsByClassName('progress-bar-condition')[0];
+  barProgress.style.width = 0;
+
+
   function Quize() {
     this.result = null;
     this.startGameBlock = document.getElementsByClassName('start-game')[0];
@@ -24,6 +32,7 @@ window.onload = (function() {
 
     startButton.addEventListener("click", function() {
       getTask();
+      updateProgressBar();
 	  });
   }
 
@@ -51,13 +60,14 @@ window.onload = (function() {
     return Math.round(Math.random() * (max - min)) + min;
   }
 
-  function progress () {
-     var yes = document.getElementsByClassName('yes')[0];
-    var bar = document.getElementsByClassName('progress-bar')[0];
-    var barProgress = document.getElementsByClassName('progress-bar-condition')[0];
-    barProgress.style.width = 0;
 
-    yes.addEventListener("click", function() {
+
+  function progress () {
+    yes.addEventListener("click",updateProgressBar);
+  }
+
+ 
+ function updateProgressBar() {
       var count = 0;
       var interval = setInterval(function() {
         if (count >= 100) {
@@ -68,10 +78,8 @@ window.onload = (function() {
         barProgress.style.width = count + '%';
       }, 50);
 
-    });
-  }
+    }
 
-  
   startGame ();
   
 
