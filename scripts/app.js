@@ -1,24 +1,36 @@
 window.onload = (function() {
   'use strict';
   function Quize() {
-  	console.log('hello');
     this.result = null;
-    this.startGame();
+    this.startGameBlock = document.getElementsByClassName('start-game')[0];
+    this.playGameBlock = document.getElementsByClassName('play-game')[0];
+    this.endGameBlock = document.getElementsByClassName('end-game')[0];
+    this.startButton = document.getElementsByClassName('start')[0];
+    this.yesButton = document.getElementsByClassName('yes')[0];
+    this.noButton = document.getElementsByClassName('no')[0];
   }
 
-  Quize.prototype.startGame = function() {
-    console.log(Quize.prototype.trackDOM());
-    this.startGameElem = document.getElementsByClassName('start-game')[0].style.display = 'block';
-  	this.start = document.getElementsByClassName('start')[0];
-  	this.start.addEventListener("click", function() {
-      Quize.prototype.getTask();
-      progress ();
-	  });
-  };
+  function view() {
+    
+  }
 
-	Quize.prototype.getTask = function(a,b) {
-    console.log(Quize.prototype.trackDOM());
-    this.playGameElem = document.getElementsByClassName('play-game')[0].style.display = 'block';
+
+  var quize = new Quize();
+  
+  function startGame () {
+  	var startButton = quize.startButton;
+    quize.playGameBlock.style.display = 'none';
+    quize.endGameBlock.style.display = 'none';
+
+    startButton.addEventListener("click", function() {
+      getTask();
+	  });
+  }
+
+	function getTask() {
+    quize.startGameBlock.style.display = 'none';
+    quize.playGameBlock.style.display = 'block';
+    progress ();
     var a = getRandomInt(1,20);
     var b = getRandomInt(1,20);
     var result = a + b;
@@ -30,37 +42,22 @@ window.onload = (function() {
 
     var answer = document.querySelector('.answer');
     answer.textContent = result;
-    this.progressBar = document.getElementsByClassName('progress-bar')[0];
+    Quize.prototype.progressBar = document.getElementsByClassName('progress-bar')[0];
 		console.log(a,b, result);
-	};
+	}
 
-  Quize.prototype.trackDOM = function() {
-    this.playGameElem = document.getElementsByClassName('play-game')[0].style.display = 'none';
-    this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'none';
-    this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'none';
-  };
-
-console.log(this.trackDOM + 'jjj');
-  console.log('jjj');
-  
-  Quize.prototype.endTask = function() {
-    this.endGameElem = document.getElementsByClassName('end-game')[0].style.display = 'block';
-  };
-
-  
-  var quize = new Quize();
 
   function getRandomInt(min, max) {
     return Math.round(Math.random() * (max - min)) + min;
   }
 
   function progress () {
-    // var yes = document.getElementsByClassName('yes')[0];
+     var yes = document.getElementsByClassName('yes')[0];
     var bar = document.getElementsByClassName('progress-bar')[0];
     var barProgress = document.getElementsByClassName('progress-bar-condition')[0];
     barProgress.style.width = 0;
 
-    this.addEventListener("click", function() {
+    yes.addEventListener("click", function() {
       var count = 0;
       var interval = setInterval(function() {
         if (count >= 100) {
@@ -73,5 +70,9 @@ console.log(this.trackDOM + 'jjj');
 
     });
   }
+
+  
+  startGame ();
+  
 
  });

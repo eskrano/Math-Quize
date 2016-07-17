@@ -43,7 +43,7 @@
 .progress-bar-condition {
 	background-color: #0074d9;
 	border-radius: 10px;
-	height: 15px;
+	height: 100%;
 	transition: all 1s linear;
 }
 
